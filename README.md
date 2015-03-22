@@ -7,8 +7,25 @@ $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-pytho
 $ virtualenv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt --allow-all-external
+$ django-admin.py startproject polls // create a project called `polls`
 $ python manage.py syncdb
+$ python manage.py runserver  // similar to `$ foreman start web`
 $ foreman start web
+
+MySQL
+https://docs.djangoproject.com/en/1.7/intro/tutorial01/
+$ sudo /usr/local/mysql/support-files/mysql.server start
+$ sudo /usr/local/mysql/support-files/mysql.server stop
+$ sudo /usr/local/mysql/support-files/mysql.server restart
+$ mysql -u root -p   // console
+$ python manage.py makemigrations polls 
+$ python manage.py sqlmigrate polls 0001
+$ python manage.py check
+$ python manage.py migrate
+$ vim mysite/mysite/settings.py  // to change DATABASES setup
+
+Django
+$ python manage.py shell  // console
 
 config vars
 $ vim .env
@@ -33,8 +50,12 @@ config vars
 $ heroku config:set TIMES=2
 $ heroku config
 
+MySQL
+$ heroku addons:open cleardb
+
 $ heroku run python manage.py shell   //console
 $ heroku run bash     // shell on that dyno
 $ heroku run python manage.py syncdb
 $ heroku open
 ```
+
