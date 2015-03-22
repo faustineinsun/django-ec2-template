@@ -11,7 +11,6 @@ def index(request):
     print r.text
     return HttpResponse('<pre>' + r.text + '</pre>')
 
-
 def db(request):
 
     greeting = Greeting()

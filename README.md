@@ -24,5 +24,3 @@ $ heroku logs --tail
 $ heroku run python manage.py syncdb
 $ heroku open
 ```
-
-
