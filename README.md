@@ -7,7 +7,6 @@ $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-pytho
 $ virtualenv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt --allow-all-external
-
 $ python manage.py syncdb
 $ foreman start web
 ```
