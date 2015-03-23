@@ -1,6 +1,6 @@
 #### local 
 
-[localhost:5000](localhost:5000)
+[run on local](localhost:5000): localhost:5000
 
 ```
 $ heroku create
