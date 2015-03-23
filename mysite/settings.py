@@ -10,6 +10,10 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+import urlparse
+import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -64,13 +68,25 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #    }
 #}
 
+#DATABASES = {
+#    'default': { 
+#        'ENGINE': 'django.db.backends.mysql', 
+#        'NAME': 'django_deploy',                     
+#        'USER': 'root',
+#        'PASSWORD': '',
+#    }
+#}
 
+# Register database schemes in URLs.
+# https://devcenter.heroku.com/articles/cleardb
 DATABASES = {
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'django_deploy',                     
-        'USER': 'root',
-        'PASSWORD': 'EBkuOjNj',
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('MYSQL_NAME'),#url.path[1:],
+        'USER': os.environ.get('MYSQL_USER'),# url.username,
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),# url.password,
+        'HOST': os.environ.get('MYSQL_HOST'),# url.hostname,
+        'PORT': '3306',#url.port,
     }
 }
 
@@ -92,3 +108,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Parse database configuration from $DATABASE_URL
+#DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+)
+
+
