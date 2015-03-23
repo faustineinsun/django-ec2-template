@@ -1,4 +1,6 @@
-local -> [localhost:5000](localhost:5000)
+#### local 
+
+[localhost:5000](localhost:5000)
 
 ```
 $ heroku create
@@ -33,7 +35,7 @@ config vars
 $ vim .env
 ```
 
-remote
+#### remote
 
 ```
 >add, commit, and push
