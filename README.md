@@ -9,8 +9,8 @@ $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-pytho
 $ pip install -r requirements.txt --allow-all-external
 $ django-admin.py startproject polls // create a project called `polls`
 >$ python manage.py syncdb   // Superuser -> Username:*u  Email: j@g Pswd:
->$ python manage.py runserver  // similar to `$ foreman start web`
->$ foreman start web
+>$ foreman start web   // instead of `python manage.py runserver`
+
 
 MySQL
 https://docs.djangoproject.com/en/1.7/intro/tutorial01/
@@ -59,6 +59,6 @@ $ heroku config:set MYSQL_INFO
 >$ heroku run python manage.py shell   //console
 >$ heroku run bash     // shell on that dyno
 >$ heroku run python manage.py syncdb
->$ heroku open
+>$ heroku open  // instead of `heroku run python manage.py runserver`
 ```
 

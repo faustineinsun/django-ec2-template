@@ -19,6 +19,11 @@ class Question(models.Model):
         if hasattr(self, '__unicode__'):
             return unicode(self.question_text).encode('utf-8')
         return self.question_text
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+    was_published_recently.admin_order_field = 'pub_date'
+    was_published_recently.boolean = True
+    was_published_recently.short_description = 'Published recently?'
 
 
 class Choice(models.Model):
@@ -32,3 +37,6 @@ class Choice(models.Model):
         if hasattr(self, '__unicode__'):
             return unicode(self.choice_text).encode('utf-8')
         return self.choice_text
+
+class Greeting(models.Model):
+    when = models.DateTimeField('date created', auto_now_add=True)
