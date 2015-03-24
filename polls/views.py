@@ -13,10 +13,11 @@ import os
 
 # Create your views here.
 def index(request):
-    r = requests.get('http://httpbin.org/status/418')
-    print r.text
-    times = int(os.environ.get('TIMES',3))
-    return HttpResponse('<pre>' + r.text + '</pre>'+ 'Hello! ' * times)
+    #r = requests.get('http://httpbin.org/status/418')
+    #print r.text
+    #times = int(os.environ.get('TIMES',3))
+    #return HttpResponse('<pre>' + r.text + '</pre>'+ 'Hello! ' * times)
+    return render(request, 'index.html')
 
 def db(request):
 
