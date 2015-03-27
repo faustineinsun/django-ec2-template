@@ -1,5 +1,17 @@
 #### local 
 
+* EC2 [http://ec2-52-4-105-143.compute-1.amazonaws.com/](http://ec2-52-4-105-143.compute-1.amazonaws.com/)
+	* [Github Generating SSH keys](https://help.github.com/articles/generating-ssh-keys/)
+	
+
+```
+$ bin/install-virtualenv.sh
+$ source venv/bin/activate
+modify bin/django-nginx-config
+$ bin/install-tools-on-ec2.sh
+$ bin/setup-nginx.sh
+```
+
 [run on local](localhost:5000): localhost:5000
 
 ```
@@ -64,10 +76,3 @@ $ heroku config:set MYSQL_INFO
 >$ heroku open  // instead of `heroku run python manage.py runserver`
 ```
 
-EC2 [http://ec2-52-4-105-143.compute-1.amazonaws.com/](http://ec2-52-4-105-143.compute-1.amazonaws.com/)
-
-```
-$ bin/install-virtualenv.sh
-modify bin/django-nginx-config
-$ bin/install-tools-on-ec2.sh
-```

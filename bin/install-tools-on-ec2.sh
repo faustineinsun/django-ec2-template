@@ -1,13 +1,8 @@
 #! /bin/bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install python-pip
-#sudo pip install virtualenv
 
 PJHOME=/home/ubuntu/Facebook-Graph/
 cd $PJHOME
-#virtualenv venv
-#source venv/bin/activate
+
 sudo apt-get install mysql-server 
 sudo apt-get install libmysqlclient-dev
 sudo apt-get install libpq-dev python-dev
@@ -22,8 +17,7 @@ sudo service nginx start   # to start the server
 #sudo service nginx stop    # to stop any servers if any
 sudo update-rc.d -f nginx defaults
 #sudo update-rc.d -f nginx remove
+#bin/setup-nginx.sh
 
 sudo pip install gunicorn
-
-bin/setup-nginx.sh
 bin/start-gnicorn.sh
