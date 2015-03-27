@@ -67,6 +67,7 @@ $ heroku config:set MYSQL_INFO
 EC2 [http://ec2-52-4-105-143.compute-1.amazonaws.com/](http://ec2-52-4-105-143.compute-1.amazonaws.com/)
 
 ```
+$ bin/install-virtualenv.sh
 modify bin/django-nginx-config
 $ bin/install-tools-on-ec2.sh
 ```
