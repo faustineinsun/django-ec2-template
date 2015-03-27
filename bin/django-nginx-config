@@ -1,0 +1,49 @@
+# reference: http://www.yaconiello.com/blog/setting-aws-ec2-instance-nginx-django-uwsgi-and-mysql/
+# http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/
+# https://github.com/ekaputra07/django-deployment-notes/blob/master/nginx_server.conf
+
+server {
+    listen 80;
+
+    server_name ec2-52-0-172-3.compute-1.amazonaws.com www.ec2-52-0-172-3.compute-1.amazonaws.com;
+
+    access_log /home/ubuntu/Facebook-Graph/log/access.log;
+    error_log  /home/ubuntu/Facebook-Graph/log/error.log;
+
+    # no security problem here, since / is alway passed to upstream
+    root /home/ubuntu/Facebook-Graph;
+
+    # serve directly - analogous for static/staticfiles
+#    location /media/ {
+        # if asset versioning is used
+        #if ($query_string) {
+        #    expires max;
+        #}
+#	alias /home/ubuntu/Facebook-Graph/polls/media;
+#    }
+#    location /static/ {
+        # if asset versioning is used
+        #if ($query_string) {
+        #    expires max;
+        #}
+#	alias /home/ubuntu/Facebook-Graph/polls/static;
+#    }
+    location / {
+        #uwsgi_pass   unix:///home/ubuntu/web/www.<vhost>.com/<vhost>uwsgi.sock;
+        #include      uwsgi_params;
+	proxy_pass_header Server;
+	proxy_set_header Host $http_host;
+	proxy_redirect off;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Scheme $scheme;
+	proxy_connect_timeout 10;
+	proxy_read_timeout 10;
+	proxy_pass http://localhost:8000/;
+    }
+
+    # what to serve if upstream is not available or crashes
+    #error_page 400 /static/400.html;
+    #error_page 403 /static/403.html;
+    #error_page 404 /static/404.html;
+    #error_page 500 502 503 504 /static/500.html;
+}
