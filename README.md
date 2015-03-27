@@ -1,18 +1,19 @@
-#### local 
+#### EC2
 
-* EC2 [http://ec2-52-4-105-143.compute-1.amazonaws.com/](http://ec2-52-4-105-143.compute-1.amazonaws.com/)
+* [website](http://ec2-52-4-105-143.compute-1.amazonaws.com/)
 	* [Github Generating SSH keys](https://help.github.com/articles/generating-ssh-keys/)
 	
-
 ```
+modify bin/django-nginx-config, change `ec2-x-x-x-x.compute-1.amazonaws.com/`
 $ bin/install-virtualenv.sh
 $ source venv/bin/activate
-modify bin/django-nginx-config
 $ bin/install-tools-on-ec2.sh
 $ bin/setup-nginx.sh
 ```
 
-[run on local](localhost:5000): localhost:5000
+#### local 
+
+* [run on local](http://localhost:5000/)
 
 ```
 $ heroku create
@@ -24,7 +25,6 @@ $ pip install -r requirements.txt --allow-all-external
 $ django-admin.py startproject polls // create a project called `polls`
 >$ python manage.py syncdb   // Superuser -> Username:*u  Email: j@g Pswd:
 >$ foreman start web   // instead of `python manage.py runserver`
-
 
 MySQL
 https://docs.djangoproject.com/en/1.7/intro/tutorial01/
@@ -47,7 +47,7 @@ config vars
 $ vim .env
 ```
 
-#### remote
+#### Heroku 
 
 ```
 >add, commit, and push
