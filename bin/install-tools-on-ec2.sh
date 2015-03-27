@@ -7,7 +7,8 @@ PJHOME=/home/ubuntu/Facebook-Graph/
 cd $PJHOME
 virtualenv venv
 source venv/bin/activate
-sudo apt-get install mysql-server | sudo apt-get install libmysqlclient-dev
+sudo apt-get install mysql-server 
+sudo apt-get install libmysqlclient-dev
 sudo apt-get install libpq-dev python-dev
 pip install -r requirements.txt --allow-all-external
 

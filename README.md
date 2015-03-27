@@ -64,9 +64,9 @@ $ heroku config:set MYSQL_INFO
 >$ heroku open  // instead of `heroku run python manage.py runserver`
 ```
 
-EC2 [ec2-52-0-172-3.compute-1.amazonaws.com](ec2-52-0-172-3.compute-1.amazonaws.com)
+EC2 [http://ec2-52-4-105-143.compute-1.amazonaws.com/](http://ec2-52-4-105-143.compute-1.amazonaws.com/)
 
 ```
-$ sudo apt-get install nginx
-$ sudo service nginx start
+modify bin/django-nginx-config
+$ bin/install-tools-on-ec2.sh
 ```
