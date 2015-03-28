@@ -1,13 +1,14 @@
-EC2 website: ec2-xx-x-xxx-xx.compute-1.amazonaws.com
-
 ### Deploying a django app on ec2
 
 #### 1. Setup Gitbub
 
 * [Github Generating SSH keys](https://help.github.com/articles/generating-ssh-keys/)
-* $ sudo apt-get install git
-* $ git config --global user.name "Your Name"
-* $ git config --global user.email "your@email.com"
+
+```
+$ sudo apt-get install git
+$ git config --global user.name "Your Name"
+$ git config --global user.email "your@email.com"
+```
 	
 #### 2. Install tools
 
