@@ -21,4 +21,4 @@ sudo update-rc.d -f nginx defaults
 #bin/setup-nginx.sh
 
 sudo pip install gunicorn
-bin/start-gnicorn.sh
+#bin/start-gnicorn.sh
