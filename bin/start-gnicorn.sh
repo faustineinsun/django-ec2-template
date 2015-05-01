@@ -1,5 +1,5 @@
 #!/bin/bash
-PJNAME=Facebook-Graph
+PJNAME=django-ec2-template
 APPNAME=mysite
 
 PJDIR=/home/ubuntu/$PJNAME/

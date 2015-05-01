@@ -68,27 +68,27 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #    }
 #}
 
-#DATABASES = {
-#    'default': { 
-#        'ENGINE': 'django.db.backends.mysql', 
-#        'NAME': 'django_deploy',                     
-#        'USER': 'root',
-#        'PASSWORD': '',
-#    }
-#}
+DATABASES = {
+    'default': { 
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'django_deploy',                     
+        'USER': 'root',
+        'PASSWORD': os.environ.get('MYSQL_PSWRD'),
+    }
+}
 
 # Register database schemes in URLs.
 # https://devcenter.heroku.com/articles/cleardb
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_NAME'),#url.path[1:],
-        'USER': os.environ.get('MYSQL_USER'),# url.username,
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),# url.password,
-        'HOST': os.environ.get('MYSQL_HOST'),# url.hostname,
-        'PORT': '3306',#url.port,
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': os.environ.get('MYSQL_NAME'),#url.path[1:],
+#        'USER': os.environ.get('MYSQL_USER'),# url.username,
+#        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),# url.password,
+#        'HOST': os.environ.get('MYSQL_HOST'),# url.hostname,
+#        'PORT': '3306',#url.port,
+#    }
+#}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

@@ -1,10 +1,11 @@
 #! /bin/bash
 
-PJHOME=/home/ubuntu/Facebook-Graph/
+PJHOME=/home/ubuntu/django-ec2-template/
 cd $PJHOME
 
 sudo apt-get install mysql-server 
 sudo apt-get install libmysqlclient-dev
+sudo update-rc.d mysql defaults # Start MySQL on reboot
 sudo apt-get install libpq-dev python-dev
 pip install -r requirements.txt --allow-all-external
 
@@ -20,4 +21,4 @@ sudo update-rc.d -f nginx defaults
 #bin/setup-nginx.sh
 
 sudo pip install gunicorn
-bin/start-gnicorn.sh
+#bin/start-gnicorn.sh
